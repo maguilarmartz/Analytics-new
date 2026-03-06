@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Cargando recurso...</title>
+<title>Recurso interactivo</title>
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0MQMF0S4CR"></script>
@@ -37,20 +37,15 @@ border:none;
 
 <script>
 
-// obtener parámetros de la URL
 const params = new URLSearchParams(window.location.search);
-const geniallyURL = params.get("genially");
+const id = params.get("id");
 
-// cargar genially
-if(geniallyURL){
-document.getElementById("geniallyFrame").src = geniallyURL;
+if(id){
 
-// usar el nombre del genially como título
-const parts = geniallyURL.split("/");
-const slug = parts[parts.length-1];
-const title = slug.replace(/-/g," ");
+const url = "https://view.genially.com/" + id;
 
-document.title = title;
+document.getElementById("geniallyFrame").src = url;
+
 }
 
 </script>
