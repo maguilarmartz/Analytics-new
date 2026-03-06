@@ -39,13 +39,20 @@ border:none;
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
+const recurso = params.get("recurso");
+
+if(recurso){
+const titulo = recurso.replace(/-/g," ");
+document.title = titulo;
+
+gtag('event','page_view',{
+page_title: titulo
+});
+}
 
 if(id){
-
 const url = "https://view.genially.com/" + id;
-
 document.getElementById("geniallyFrame").src = url;
-
 }
 
 </script>
